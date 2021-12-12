@@ -8,9 +8,10 @@ namespace CardGame
     {
         static void Main(string[] args)
         {
-
+            // Initialize the default Deck and players draw pile and discard pile
             Initialize(out Player p1, out Player p2);
 
+            // Play the game for two players
             Play(p1, p2);
 
             Console.ReadLine();
@@ -41,11 +42,6 @@ namespace CardGame
             p2 = new Player("p2", p2DrawPile);
         }
 
-        /// <summary>
-        /// Play the game and prints the output
-        /// </summary>
-        /// <param name="p1">player 1</param>
-        /// <param name="p2">player 2</param>
         private static void Play(Player p1, Player p2)
         {
             var n1 = p1.DrawPile.Count();
@@ -54,25 +50,51 @@ namespace CardGame
 
             while (p1.HasCards && p2.HasCards)
             {
+                // if there is no card in draw pile then use discard pile cards
                 UseDiscardPileIfDrawPileIsEmpty(p1, p2, ref n1, ref n2);
 
                 var p1Card = p1.DrawPile[n1 - 1];
                 p1.DrawPile.RemoveAt(n1 - 1);
                 n1--;
+
                 var p2Card = p2.DrawPile[n2 - 1];
                 p2.DrawPile.RemoveAt(n2 - 1);
                 n2--;
+
+                // compare card values and print the output
                 CompareCardValueAndPrintOutput(p1, p2, n1, n2, tempList, p1Card, p2Card);
+
+                // add new line
                 Console.WriteLine();
             }
 
-            if (p1.HasCards)
+            // Print the final winner name
+            PrintTheFinalWinner(p1, p2);
+        }
+
+        private static void UseDiscardPileIfDrawPileIsEmpty(Player p1, Player p2, ref int n1, ref int n2)
+        {
+            if (!p1.DrawPile.Any())
             {
-                Console.WriteLine("Player 1 wins the game!");
+                // create and shuffle new deck from discarded pile 
+                var newDeck = Deck.Shuffle(p1.DiscardedPile, p1.DiscardedPile.Count());
+                p1.DrawPile.AddRange(newDeck);
+
+                // after assigning to draw pile, empty the discarded pile
+                p1.DiscardedPile.Clear();
+
+                n1 = p1.DrawPile.Count();
             }
-            else if (p2.HasCards)
+
+            if (!p2.DrawPile.Any())
             {
-                Console.WriteLine("Player 2 wins the game!");
+                // create and shuffle new deck
+                var newDeck = Deck.Shuffle(p2.DiscardedPile, p2.DiscardedPile.Count());
+                p2.DrawPile.AddRange(newDeck);
+
+                // after assigning to draw pile, empty the discarded pile
+                p2.DiscardedPile.Clear();
+                n2 = p2.DrawPile.Count();
             }
         }
 
@@ -118,29 +140,15 @@ namespace CardGame
             }
         }
 
-        private static void UseDiscardPileIfDrawPileIsEmpty(Player p1, Player p2, ref int n1, ref int n2)
+        private static void PrintTheFinalWinner(Player p1, Player p2)
         {
-            if (!p1.DrawPile.Any())
+            if (p1.HasCards)
             {
-                // create and shuffle new deck from discarded pile 
-                var newDeck = Deck.Shuffle(p1.DiscardedPile, p1.DiscardedPile.Count());
-                p1.DrawPile.AddRange(newDeck);
-
-                // after assigning to draw pile, empty the discarded pile
-                p1.DiscardedPile.Clear();
-
-                n1 = p1.DrawPile.Count();
+                Console.WriteLine("Player 1 wins the game!");
             }
-
-            if (!p2.DrawPile.Any())
+            else if (p2.HasCards)
             {
-                // create and shuffle new deck
-                var newDeck = Deck.Shuffle(p2.DiscardedPile, p2.DiscardedPile.Count());
-                p2.DrawPile.AddRange(newDeck);
-
-                // after assigning to draw pile, empty the discarded pile
-                p2.DiscardedPile.Clear();
-                n2 = p2.DrawPile.Count();
+                Console.WriteLine("Player 2 wins the game!");
             }
         }
     }

@@ -69,7 +69,7 @@ namespace CardGame
         }
 
         [Fact]
-        public void WhenCompareCards_EqualCardValues_ShouldbeinTempList()
+        public void NextTurnWinner_ShouldWin4Cards_ForEqualCardValues_InPreviousTurn()
         {
             // Arrange
             var p1cards = new List<Card>();
@@ -91,9 +91,14 @@ namespace CardGame
 
             // Act
             Game.CompareCardValueAndPrintOutput(p1, p2, n1, n2, tmpList, p1Card, p2Card);
+            p1Card = new Card("club", "2", 2);
+            p2Card = new Card("diamonds", "ace", 1);
+            Game.CompareCardValueAndPrintOutput(p1, p2, n1, n2, tmpList, p1Card, p2Card);
 
             // Assert
-            Assert.NotEmpty(tmpList);
+            Assert.NotEmpty(p1.DiscardedPile);
+            Assert.Equal(4, p1.DiscardedPile.Count());
+            Assert.Empty(tmpList);
             // TODO check for next round winner , add templist cards to hid discard list
         }
     }

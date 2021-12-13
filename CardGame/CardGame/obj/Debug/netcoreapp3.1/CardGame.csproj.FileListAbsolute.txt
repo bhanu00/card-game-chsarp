@@ -4,7 +4,6 @@ C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardG
 C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardGame\bin\Debug\netcoreapp3.1\CardGame.runtimeconfig.dev.json
 C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardGame\bin\Debug\netcoreapp3.1\CardGame.dll
 C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardGame\bin\Debug\netcoreapp3.1\CardGame.pdb
-C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardGame\obj\Debug\netcoreapp3.1\CardGame.csproj.AssemblyReference.cache
 C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardGame\obj\Debug\netcoreapp3.1\CardGame.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardGame\obj\Debug\netcoreapp3.1\CardGame.AssemblyInfoInputs.cache
 C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardGame\obj\Debug\netcoreapp3.1\CardGame.AssemblyInfo.cs
@@ -12,3 +11,4 @@ C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardG
 C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardGame\obj\Debug\netcoreapp3.1\CardGame.dll
 C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardGame\obj\Debug\netcoreapp3.1\CardGame.pdb
 C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardGame\obj\Debug\netcoreapp3.1\CardGame.genruntimeconfig.cache
+C:\Users\BPratap\OneDrive - Stryker\My_Work\Learning\SAP\sap-test\CardGame\CardGame\obj\Debug\netcoreapp3.1\CardGame.csproj.AssemblyReference.cache
